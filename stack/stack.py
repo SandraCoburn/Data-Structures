@@ -38,21 +38,12 @@ class Stack:
         self.storage = LinkedList()
 
     def __len__(self):
-        count = 0
-        current_head = self.storage.head
-        while current_head != None:
-            current_head = current_head.next
-            count = count + 1
-        return count
+        self.size = self.storage.size()
 
     def push(self, value):
-        self.storage.add_to_tail(value)
-        #self.size = len(self.storage)
+        return self.storage.add_to_tail(value)
+      
 
     def pop(self):
-        if self.size == 0:
-            return None
-        else:
-            popped = self.storage.remove_tail()
-            #self.size = len(self.storage)
-            return popped
+        return self.storage.remove_tail()
+            
