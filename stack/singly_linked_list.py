@@ -44,12 +44,11 @@ class LinkedList:
 
         current = self.head
 
-        while current.get_next() and current.get_next() is not self.tail:
+        while current.get_next() is not self.tail:
             current = current.get_next()
-        val = self.tail.get_value()
-        self.tail = current
-        self.tail.set_next(None)
-        return val
+            val = self.tail.get_value()
+            self.tail = current
+            return val
     
     def contains(self, value):
         if not self.head:
