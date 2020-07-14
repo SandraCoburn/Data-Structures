@@ -48,13 +48,17 @@ class LinkedList:
     
     def remove_tail(self):
         if self.head is None:
-            return None
+            return 
         else:
             current = self.head
-            while current.next is not None:
-                previous = current
-                current = current.next
-            previous.next = None
+            if self.head.next is not None:
+                while current.next is not None:
+                    previous = current
+                    current = current.next
+                previous.next = None
+            else:
+                self.head = None
+            return current.value
     
     def contains(self, value):
         if self.head is None:
@@ -71,8 +75,8 @@ class LinkedList:
         current = self.head
         length = 0
         while current is not None:
-            length = length +1
-            current.current.next
+            length = length + 1
+            current = current.next
         return length
 
     def get_max(self):
