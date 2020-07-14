@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -48,17 +49,23 @@ class LinkedList:
     
     def remove_tail(self):
         if self.head is None:
-            return 
+            return None
         else:
-            current = self.head
-            if self.head.next is not None:
-                while current.next is not None:
-                    previous = current
-                    current = current.next
-                previous.next = None
-            else:
-                self.head = None
-            return current.value
+            value = self.head.value
+            self.head = self.head.next
+            return value
+        # if self.head is None:
+        #     return 
+        # else:
+        #     current = self.head
+        #     if self.head.next is not None:
+        #         while current.next is not None:
+        #             previous = current
+        #             current = current.next
+        #         previous.next = None
+        #     else:
+        #         self.head = None
+        #     return current.value
     
     def contains(self, value):
         if self.head is None:

@@ -47,3 +47,9 @@ class Stack:
     def pop(self):
         return self.storage.remove_tail()
             
+s = Stack()
+print(s.size)
+s.push(2)
+print(s.storage)
+s.push(8)
+print(s.size)
