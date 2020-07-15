@@ -137,8 +137,6 @@ class DoublyLinkedList:
     def delete(self, node):
         if self.length < 1:
             return
-
-        
         if self.length > 1:
             if node is self.head:
                 self.remove_from_head()
