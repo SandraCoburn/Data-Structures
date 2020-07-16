@@ -66,7 +66,17 @@ class BSTNode:
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        if self.value:
+            # First recur on left child
+
+            if self.left is not None:
+                self.left.for_each(fn)
+
+            fn(self.value)
+            #recur on right child
+            if self.right is not None:
+
+                self.right.for_each(fn)
 
     # Part 2 -----------------------
 
@@ -102,3 +112,7 @@ bst.insert(7)
 bst.insert(6)
 print(bst.left.right.value)
 print(bst.get_max())
+def printnum(value):
+    return value
+    
+print(bst.for_each(printnum))
