@@ -45,29 +45,20 @@ class LinkedList:
                 self.head = None
                 self.tail = None
             return removed_head
-        # # what if we only have a single elem in the linked list?
-        # # both head and tail are pointing at the same Node 
-        # if not self.head.get_next():
-        #     head = self.head 
-        #     # delete the linked list's head reference 
-        #     self.head = None
-        #     # also delete the linked list's tail reference 
-        #     self.tail = None 
-        #     return head.get_value()
-        # val = self.head.get_value()
-        # # set self.head to the Node after the head 
-        # self.head = self.head.get_next()
-        # return val
     
     def remove_tail(self):
         if self.head is None:
-            return None
+            return 
         else:
             current = self.head
-            while current.next is not None:
-                previous = current
-                current = current.next
-            previous.next = None
+            if self.head.next is not None:
+                while current.next is not None:
+                    previous = current
+                    current = current.next
+                previous.next = None
+            else:
+                self.head = None
+            return current.value
     
     def contains(self, value):
         if self.head is None:
@@ -79,16 +70,14 @@ class LinkedList:
                     return True
                 current = current.next
             return False
-    # def contains(self, value):
-    #     if not self.head:
-    #         return False
-    #     current = self.head
 
-    #     while current:
-    #         if current.get_value() == value:
-    #             return True
-    #         current = current.get_next()
-    #     return False
+    def size(self):
+        current = self.head
+        length = 0
+        while current is not None:
+            length = length + 1
+            current = current.next
+        return length
 
     def get_max(self):
         if self.head is None:
@@ -113,6 +102,3 @@ print("head: ", sl.head.value)
 print("tail: ", sl.tail.value)
 sl.remove_tail()
 print("tail", sl.tail.value)
-
-
-
