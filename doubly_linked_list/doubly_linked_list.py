@@ -17,6 +17,7 @@ class DoublyLinkedList:
         self.head = node
         self.tail = node
         self.length = 1 if node is not None else 0
+        self.old_node = self.head 
 
     def __len__(self):
         return self.length
